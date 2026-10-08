@@ -1,2 +1,2 @@
-# creating-coding-data
+# creative-coding-data
 City St George's Creative Coding Assignment
