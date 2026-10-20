@@ -27,58 +27,62 @@ void draw()
   rect(0, 500, 600, 100);
   
   stroke(40,130,60);
-  int plantHeight = calculateHeight(200);
-  line(ttX,500,ttX,500 - plantHeight);
+  int tiktokHeight = calculateHeight(200);
+  line(ttX, 500, ttX, 500 - tiktokHeight);
   
   fill(255,247,3);
   stroke(255,247,3);
-  circle(ttX,500 - plantHeight,40);
+  circle(ttX, 500 - tiktokHeight, 40);
   
   fill(0);
   textSize(14);
   text("Tiktok", ttX,513);
   
   stroke(40,130,60);
-  line(discordX,500,discordX,400);
+  int discordHeight = calculateHeight(400);
+  line(discordX, 500, discordX, 500 - discordHeight);
   
   fill(117,183,247);
   stroke(117,183,247);
-  circle(discordX,400,40);
+  circle(discordX, 500 - discordHeight, 40);
   
   fill(0);
   textSize(14);
   text("Discord",discordX,513);
   
   stroke(40,130,60);
-  line(whatsappX,500,whatsappX,400);
+  int whatsappHeight = calculateHeight(600);
+  line(whatsappX, 500, whatsappX, 500 - whatsappHeight);
   
   fill(255,10,166);
   stroke(255,10,166);
-  circle(whatsappX,400,40);
+  circle(whatsappX, 500 - whatsappHeight ,40);
   
   fill(0);
   textSize(14);
   text("Whatsapp",whatsappX,513);
   
   stroke(40,130,60);
-  line(safariX,500,safariX,400);
+  int safariHeight = calculateHeight(800);
+  line(safariX, 500, safariX, 500 - safariHeight);
   
   fill(252,75,5);
   stroke(252,75,5);
-  circle(safariX,400,40);
+  circle(safariX, 500 - safariHeight, 40);
   
   fill(0);
   textSize(14);
   text("Safari",safariX,513);
   
   stroke(40,130,60);
-  line(tachimangaX,500,tachimangaX,400);
+  int tachimangaHeight = calculateHeight(1000);
+  line(tachimangaX, 500, tachimangaX, 500 - tachimangaHeight);
   
   fill(41,27,121);
   stroke(41,27,121);
-  circle(tachimangaX,400,40);
+  circle(tachimangaX, 500 - tachimangaHeight, 40);
   
   fill(0);
   textSize(14);
-  text("Tachimanga",tachimangaX,513);
+  text("Tachimanga", tachimangaX, 513);
 }
