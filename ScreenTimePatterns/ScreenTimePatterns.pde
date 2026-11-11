@@ -3,6 +3,9 @@ int discordX = 180;
 int whatsappX = 300;
 int safariX = 420;
 int tachimangaX = 540;
+
+ArrayList<Observation> observations = new ArrayList<Observation>();
+
 int calculateHeight(int minutes)
 {
   int limitedMinutes = constrain(minutes, 0, 1200);
@@ -18,6 +21,20 @@ int calculateHeight(int minutes)
 void setup()
 {
   size(600,600);
+  
+  observations.add(new Observation(
+    "01/10/2026", "TikTok", 420, "Entertainment"
+  ));
+
+  observations.add(new Observation(
+    "02/10/2026", "Discord", 150, "Communication"
+  ));
+
+  // PRINT EACH OBSERVATION
+  for (int i = 0; i < observations.size(); i++)
+  {
+    println(observations.get(i).app + ": " + observations.get(i).minutes);
+  }
 }
 
 void draw()
@@ -92,3 +109,20 @@ void draw()
   textSize(14);
   text("Tachimanga", tachimangaX, 513);
 }
+
+class Observation
+{
+   String date;
+   String app;
+   int minutes;
+   String category;
+   
+   Observation(String observationDate, String appName, int screenMinutes, String appCategory)
+   
+   {
+     date = observationDate;
+     app = appName;
+     minutes = screenMinutes;
+     category = appCategory;
+   }
+} 
