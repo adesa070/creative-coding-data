@@ -4,6 +4,7 @@ int whatsappX = 300;
 int safariX = 420;
 int tachimangaX = 540;
 
+Table data;
 ArrayList<Observation> observations = new ArrayList<Observation>();
 
 int calculateHeight(int minutes)
@@ -21,20 +22,26 @@ int calculateHeight(int minutes)
 void setup()
 {
   size(600,600);
+  data = loadTable("My Data - Sheet1 (3).csv", "header");
   
-  observations.add(new Observation(
-    "01/10/2026", "TikTok", 420, "Entertainment"
-  ));
+  
+for (int i = 0; i < data.getRowCount(); i++)
+{   
+    TableRow row = data.getRow(i);
+    String date = row.getString("Date");
+    String app = row.getString("App");
+    int minutes = row.getInt("Minutes");
+    String category = row.getString("Category");
+    observations.add(new Observation(date, app, minutes, category));
+}
 
-  observations.add(new Observation(
-    "02/10/2026", "Discord", 150, "Communication"
-  ));
+for (int i = 0; i < observations.size(); i++)
+{
+  println(observations.get(i).app + ": " + observations.get(i).minutes);
+}
 
-  // PRINT EACH OBSERVATION
-  for (int i = 0; i < observations.size(); i++)
-  {
-    println(observations.get(i).app + ": " + observations.get(i).minutes);
-  }
+println("Total observations: " + observations.size());
+
 }
 
 void draw()
