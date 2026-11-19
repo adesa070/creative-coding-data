@@ -35,13 +35,50 @@ for (int i = 0; i < data.getRowCount(); i++)
     observations.add(new Observation(date, app, minutes, category));
 }
 
+int tiktokCount = 0;
+int discordCount = 0;
+int whatsappCount = 0;
+int safariCount = 0;
+int tachimangaCount = 0;
+
 for (int i = 0; i < observations.size(); i++)
-{
+{ 
+  if (observations.get(i).app.equals("Tiktok"))
+  {
+    tiktokCount++;
+  }
+  
+  if (observations.get(i).app.equals("Discord"))
+  {
+    discordCount++;
+  }
+  
+  if (observations.get(i).app.equals("Whatsapp"))
+  {
+    whatsappCount++;
+  }
+  
+  if (observations.get(i).app.equals("Safari"))
+  {
+    safariCount++;
+  }
+  
+  if (observations.get(i).app.equals("Tachimanga"))
+  {
+    tachimangaCount++;
+  }
+  
   println(observations.get(i).app + ": " + observations.get(i).minutes);
 }
 
+println(tiktokCount);
+println(discordCount);
+println(whatsappCount);
+println(safariCount);
+println(tachimangaCount);
+int totalCount = tiktokCount + discordCount + whatsappCount + safariCount + tachimangaCount;
+println("Total counted: " + totalCount);
 println("Total observations: " + observations.size());
-
 }
 
 void draw()
