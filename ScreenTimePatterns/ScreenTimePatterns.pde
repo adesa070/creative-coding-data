@@ -19,6 +19,41 @@ int calculateHeight(int minutes)
   return (int) map(limitedMinutes, 0, 1200, 20, 300);
 }
 
+int calculateLeafSize(int minutes)
+{
+  int leafSize = (int) map(minutes, 0, 600, 6, 40);
+  return leafSize;
+}
+
+int getPlantX(String app)
+{
+    if (app.equals("Tiktok"))
+    {
+        return ttX;
+    }
+
+    if (app.equals("Discord"))
+    {
+      return discordX;
+    }
+    
+    if (app.equals("Whatsapp"))
+    {
+      return whatsappX;
+    }
+    
+    if (app.equals("Safari"))
+    {
+      return safariX;
+    }
+    
+    if (app.equals("Tachimanga"))
+    {
+      return tachimangaX;
+    }
+    return -1;
+}
+
 void setup()
 {
   size(600,600);
@@ -83,6 +118,12 @@ println("Total observations: " + observations.size());
 
 void draw()
 {
+  int ttLeafIndex = 0;
+  int discordLeafIndex = 0;
+  int whatsappLeafIndex = 0;
+  int safariLeafIndex = 0;
+  int tachimangaLeafIndex = 0;
+  
   background(240);
   
   textAlign(CENTER);
@@ -152,6 +193,51 @@ void draw()
   fill(0);
   textSize(14);
   text("Tachimanga", tachimangaX, 513);
+  
+  for (int i = 0; i < observations.size(); i++)
+  {
+    int leafSize = calculateLeafSize(observations.get(i).minutes);
+    int leafX = getPlantX(observations.get(i).app);
+
+    if (observations.get(i).app.equals("Tiktok"))
+    {
+        int leafY = 480 - (ttLeafIndex * 20);
+        ellipse(leafX, leafY, leafSize, 10);
+        ttLeafIndex++;
+    }
+    
+    
+    if (observations.get(i).app.equals("Discord"))
+    {
+        int leafY = 480 - (discordLeafIndex * 20);
+        ellipse(leafX, leafY, leafSize, 10);
+        discordLeafIndex++;
+    }
+    
+    
+    if (observations.get(i).app.equals("Whatsapp"))
+    {
+        int leafY = 480 - (whatsappLeafIndex * 20);
+        ellipse(leafX, leafY, leafSize, 10);
+        whatsappLeafIndex++;
+    }
+    
+    
+    if (observations.get(i).app.equals("Safari"))
+    {
+        int leafY = 480 - (safariLeafIndex * 20);
+        ellipse(leafX, leafY, leafSize, 10);
+        safariLeafIndex++;
+    }
+    
+    
+    if (observations.get(i).app.equals("Tachimanga"))
+    {
+        int leafY = 480 - (tachimangaLeafIndex * 20);
+        ellipse(leafX, leafY, leafSize, 10);
+        tachimangaLeafIndex++;
+    }   
+  } 
 }
 
 class Observation
