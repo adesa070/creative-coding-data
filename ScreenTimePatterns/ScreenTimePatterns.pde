@@ -7,18 +7,6 @@ int tachimangaX = 540;
 Table data;
 ArrayList<Observation> observations = new ArrayList<Observation>();
 
-int calculateHeight(int minutes)
-{
-  int limitedMinutes = constrain(minutes, 0, 1200);
-
-  if (limitedMinutes == 0)
-  {
-    return 0;
-  }
-
-  return (int) map(limitedMinutes, 0, 1200, 20, 300);
-}
-
 int calculateLeafSize(int minutes)
 {
   int leafSize = (int) map(minutes, 0, 600, 6, 40);
@@ -125,6 +113,7 @@ void draw()
   int tachimangaLeafIndex = 0;
   
   background(240);
+  fill(0);
   
   textAlign(CENTER);
   textSize(24);
@@ -135,60 +124,55 @@ void draw()
   rect(0, 500, 600, 100);
   
   stroke(40,130,60);
-  int tiktokHeight = calculateHeight(407);
-  line(ttX, 500, ttX, 500 - tiktokHeight);
+  line(ttX, 500, ttX, 90);
   
   fill(255,247,3);
   stroke(255,247,3);
-  circle(ttX, 500 - tiktokHeight, 40);
+  circle(ttX, 80, 20);
   
   fill(0);
   textSize(14);
   text("Tiktok", ttX,513);
   
   stroke(40,130,60);
-  int discordHeight = calculateHeight(130);
-  line(discordX, 500, discordX, 500 - discordHeight);
+  line(discordX, 500, discordX, 90);
   
   fill(117,183,247);
   stroke(117,183,247);
-  circle(discordX, 500 - discordHeight, 40);
+  circle(discordX, 80, 20);
   
   fill(0);
   textSize(14);
   text("Discord",discordX,513);
   
   stroke(40,130,60);
-  int whatsappHeight = calculateHeight(97);
-  line(whatsappX, 500, whatsappX, 500 - whatsappHeight);
+  line(whatsappX, 500, whatsappX, 90);
   
   fill(255,10,166);
   stroke(255,10,166);
-  circle(whatsappX, 500 - whatsappHeight ,40);
+  circle(whatsappX, 80, 20);
   
   fill(0);
   textSize(14);
   text("Whatsapp",whatsappX,513);
   
   stroke(40,130,60);
-  int safariHeight = calculateHeight(18);
-  line(safariX, 500, safariX, 500 - safariHeight);
+  line(safariX, 500, safariX, 90);
   
   fill(252,75,5);
   stroke(252,75,5);
-  circle(safariX, 500 - safariHeight, 40);
+  circle(safariX, 80, 20);
   
   fill(0);
   textSize(14);
   text("Safari",safariX,513);
   
   stroke(40,130,60);
-  int tachimangaHeight = calculateHeight(17);
-  line(tachimangaX, 500, tachimangaX, 500 - tachimangaHeight);
+  line(tachimangaX, 500, tachimangaX, 90);
   
   fill(41,27,121);
   stroke(41,27,121);
-  circle(tachimangaX, 500 - tachimangaHeight, 40);
+  circle(tachimangaX, 80, 20);
   
   fill(0);
   textSize(14);
@@ -202,14 +186,17 @@ void draw()
     if (observations.get(i).app.equals("Tiktok"))
     {
         int leafY = 480 - (ttLeafIndex * 20);
+        fill(255,247,3);
+        noStroke();
         ellipse(leafX, leafY, leafSize, 10);
-        ttLeafIndex++;
+        ttLeafIndex++;    
     }
-    
-    
+  
     if (observations.get(i).app.equals("Discord"))
     {
         int leafY = 480 - (discordLeafIndex * 20);
+        fill(117,183,247);
+        noStroke();
         ellipse(leafX, leafY, leafSize, 10);
         discordLeafIndex++;
     }
@@ -218,6 +205,8 @@ void draw()
     if (observations.get(i).app.equals("Whatsapp"))
     {
         int leafY = 480 - (whatsappLeafIndex * 20);
+        fill(255,10,166);
+        noStroke();
         ellipse(leafX, leafY, leafSize, 10);
         whatsappLeafIndex++;
     }
@@ -226,6 +215,8 @@ void draw()
     if (observations.get(i).app.equals("Safari"))
     {
         int leafY = 480 - (safariLeafIndex * 20);
+        fill(252,75,5);
+        noStroke();
         ellipse(leafX, leafY, leafSize, 10);
         safariLeafIndex++;
     }
@@ -234,6 +225,8 @@ void draw()
     if (observations.get(i).app.equals("Tachimanga"))
     {
         int leafY = 480 - (tachimangaLeafIndex * 20);
+        fill(41,27,121);
+        noStroke();
         ellipse(leafX, leafY, leafSize, 10);
         tachimangaLeafIndex++;
     }   
